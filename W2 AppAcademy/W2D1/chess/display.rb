@@ -12,17 +12,17 @@ class Display
 
     def render 
         
-
-        while true
+        # system "clear"
+        # while true
             board.render(@cursor.cursor_pos)
             p cursor.cursor_pos
             cursor.get_input
-            system "clear"
+            # system "clear"
 
-        end 
+        # end 
     end 
 end 
 
-b = Board.new
-a = Display.new(b)
-a.render
+# b = Board.new
+# a = Display.new(b)
+# a.render
