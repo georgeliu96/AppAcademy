@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+puts 'Please enter your email: '
+email = gets.chomp 
+puts 'Would you like to visit a shortened URL? (Y/N)'
+choice = gets.chomp 
+if choice == Y  
+    ShortenedUrl.all.sample.short_url 
+else 
+    puts 'Would you like to create a shortened URL? (Y/N)'
+    choice = gets.chomp 
+    
+
+
+
+Launchy.open('#{url}')
