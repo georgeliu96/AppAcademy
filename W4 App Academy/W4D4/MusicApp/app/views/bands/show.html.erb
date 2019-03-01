@@ -1,0 +1,38 @@
+<h2><%=@band.name%></h2>
+
+<h3>Albums</h3>
+<%@band.albums.each do |album|%>
+  <li>
+  <%=album.title%>
+    <ul>
+      <li>Year: <%=album.year%></li>
+      <li> 
+        <%if album.live%>
+          Live Recording
+        <%else%>
+          Studio Recording 
+        <%end%>
+      </li>
+    </ul> 
+  </li>
+  <form action = "<%= edit_album_url(album) %>" method = "POST" >
+    <input type = "hidden" name = "_method" value = "GET">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type = "Submit" value = "Edit this Album">
+  </form>
+  <form action = "<%= album_url(album) %>" method = "POST" >
+    <input type = "hidden" name = "_method" value = "DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type = "Submit" value = "Delete this Album">
+  </form>
+
+  <br><br>
+  
+<%end%>
+
+
+<a href="<%=new_band_album_url(@band)%>"> Add a new album for <%=@band.name%> </a>
+<br><br>
+<a href="<%=bands_url%>"> Look at all artists </a>
+<br>
+<br>

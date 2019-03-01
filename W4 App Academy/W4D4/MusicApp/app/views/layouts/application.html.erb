@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <div>
+  <h1 style = "display: inline;"> Spootify </h1>
+  <% if logged_in?%>
+    <p align = "right" style = "display: inline; float: right"> <%=current_user.email%> </p>
+    <form action = "<%= session_url %>" method = "POST" >
+    <input type = "hidden" name = "_method" value = "DELETE">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type = "Submit" value = "Log Out" style = "float:right; clear:both">
+    </form>
+  <% else %>
+    <p align = "right" style = "display: inline; float:right">
+    <a href="<%= new_session_url%>" style = "color:green; background-color:#bff6cd; text-decoration:none; border-radius: 25px">Login</a>
+    <a href="<%= new_user_url%>" style = "color:green; background-color:#bff6cd; text-decoration:none; border-radius: 25px">Signup</a> 
+    </p>
+  <% end %>
+  </div>
+  
+
+  <%= render 'shared/errors' %>
+  <body>
+    <%= yield %>
+  </body>
+
+
+</html>

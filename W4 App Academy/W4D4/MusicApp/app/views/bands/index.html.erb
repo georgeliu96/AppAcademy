@@ -1,0 +1,12 @@
+<h2>Artists</h2>
+
+<%@bands.each do |band|%>
+  <li><%=band.name%>
+  <ul><a href="<%=band_url(band)%>"> Look at this band </a></ul>
+  </li>
+
+<%end%>
+
+<br><br>
+
+<a href="<%=new_band_url%>"> Add a new Artist </a>

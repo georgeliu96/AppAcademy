@@ -1,0 +1,8 @@
+<h2>All the Music Lovers</h2>
+
+<%@users.each do |user|%>
+  <li><%=user.email%>
+  <ul><a href="<%=user_url(user)%>"> Look at this user </a></ul>
+  </li>
+
+<%end%>

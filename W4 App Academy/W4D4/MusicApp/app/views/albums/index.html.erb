@@ -1,0 +1,8 @@
+<h2>Albums</h2>
+
+<%@albums.each do |album|%>
+  <li><%=album.title%>
+  <ul><a href="<%=album_url(album)%>"> Look at this album </a></ul>
+  </li>
+
+<%end%>
